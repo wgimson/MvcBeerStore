@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcBeerStore.Models.Style>
+<ul id="categories">
+    @foreach (var style in Model)
+    {
+        <li>@Html.ActionLink(style.Name,
+                "Browse", "Store", 
+                new { Style = style.Name }, null)
+        </li>
+    }
+</ul>

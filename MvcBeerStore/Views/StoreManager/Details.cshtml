@@ -1,0 +1,40 @@
+﻿@model MvcBeerStore.Models.Beer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Beer</legend>
+
+    <div class="display-label">Style</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Style.Name)
+    </div>
+
+    <div class="display-label">Brewery</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Brewery.Name)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">BeerArtUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BeerArtUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BeerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

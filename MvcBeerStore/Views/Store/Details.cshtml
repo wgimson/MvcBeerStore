@@ -1,0 +1,25 @@
+﻿@model MvcBeerStore.Models.Beer
+@{
+    ViewBag.Title = "Beer - " + Model.Name;
+ }
+<h2>@Model.Name</h2>
+<p>
+    <img alt="@Model.Name" src="@Model.BeerArtUrl" />
+</p>
+<div id="album-details">
+    <p>
+        <em>Genre:</em>
+        @Model.Style.Name
+    </p>
+    <p>
+        <em>Artist:</em>
+        @Model.Brewery.Name
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}", Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.BeerId }, "")
+    </p>
+</div>

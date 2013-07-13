@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MvcBeerStore.Models.Style>
+
+@{
+    ViewBag.Title = "Store";
+}
+<h2>Browse Styles</h2>
+<p>Select from @Model.Count() styles:</p>
+<ul>
+    @foreach (var style in Model)
+    {
+        <li>@Html.ActionLink(style.Name, "Browse", new { style = Server.HtmlEncode(style.Name) })</li>
+    }
+</ul>

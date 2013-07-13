@@ -1,0 +1,15 @@
+﻿@model MvcBeerStore.Models.Beer
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>Delete Confirmation</h2>
+<h3>Are you sure you want delete the beer <strong>@Model.Name</strong>?</h3>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> 
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

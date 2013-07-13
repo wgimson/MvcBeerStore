@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MvcBeerStore.Models.Beer>
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length) 
+    {
+        @input
+    }
+    else 
+    {
+            @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Style
+        </th>
+        <th>
+            Brewery
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Truncate(item.Style.Name, 25)
+        </td>
+        <td>
+            @Truncate(item.Brewery.Name, 25)
+        </td>
+        <td>
+            @Truncate(item.Name, 25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BeerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BeerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BeerId })
+        </td>
+    </tr>
+}
+
+</table>
